@@ -1,0 +1,12 @@
+@import '~bootstrap/scss/bootstrap';
+$color:red;
+h1 {
+    color: $color;
+}
+
+.herro h1 {
+    display: inline;
+    width: 100%;
+    text-align: center;
+    background-color: brown;
+}
