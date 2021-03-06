@@ -36,14 +36,23 @@ function create( $name, $surname, $acc, $personalId, $balance) : void // nieko n
     writeData($saskaiteles);
 }
 
-function update($id, $balance) : void // nieko negrazina, bet paima kieki
+function updateAdd($id, $balance) : void // nieko negrazina, bet paima kieki ir prideda pinigus
 {
     $saskaiteles = readData();     // pasiimu visas saskaitas
     $user = getAccount($id);       // tada paimu ta saskaita kurios man reikia
     if(!$user) {
         return;
     }
-    $user['balance'] = $balance;   // paredaguoju balansa
+
+    // if($user['balance'] < $_POST['balance'] & $user['balance']  < 0 ){
+    //    unset($_POST['balance']);
+    // }
+    $user['balance'] +=$_POST['balance'];   // paredaguoju balansa
+    if ($user['balance']  < 0){   //jeigu minusuojama daugiau negu yra saskaitoj, tada gryztam atgal nepadare pakeitimu;
+        return;
+    }
+    
+
     deleteAccount($id);    // tada su deleteAccoint funkcija istrinu sena saskaita
     $saskaiteles = readData(); //vel perskaitau naujai saskaitas jau be istrintos.
 
@@ -57,7 +66,7 @@ function deleteAccount(int $id) : void //nurodom kokia saskaita deletinam
     $saskaiteles = readData();
 
     foreach($saskaiteles as $key => $user) {
-        if($user['id'] == $id){ // jeigu $user[id] sutama su mano iieskoma $id
+        if($user['id'] == $id ){ // jeigu $user[id] sutama su mano iieskoma $id
             unset($saskaiteles[$key]);   // tada ir istrinu to sutampancio id user masyva
             writeData($saskaiteles);   // ir irasom pakeista faila
             return;

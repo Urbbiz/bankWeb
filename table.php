@@ -46,17 +46,8 @@ require __DIR__.'/bootstrap.php';
         </form></td>
               
   </tr>
-
     <?php endforeach?>
-  <!-- <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr> -->
-  <!-- <td><a class="add" href="add.php?userNR=<?= $key ?>">Pridėti</a></td>
-                    <td><a class="cashout" href="cashout.php?userNR=<?= $key ?>">Nuskaičiuoti</a></td>
-                    <td><form action="<?= URL ?>delete.php?id=<?= $user['acc'] ?>"method="post">
-        <button type="submit" class="btn delete">Ištrinti</button> -->
+  
 </table>
     
 </body>

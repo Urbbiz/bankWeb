@@ -3,8 +3,9 @@ require __DIR__.'/bootstrap.php';
 //POST scenarijus - saskaitos sukurimas
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $saskaita = $_POST["name"] ?? 0;
+    $balance = $_POST['balance']?? 0;  // pasidariau sita, kad pradine saskaita butu = 0
     // $saskaita = (int) $saskaita;
-    create($_POST['name'],$_POST['surname'],$_POST['acc'], $_POST['personalId'], $_POST['balance']);
+    create($_POST['name'],$_POST['surname'],$_POST['acc'], $_POST['personalId'], $balance);
     header('Location: '.URL.'table.php'); // einam i lenteles puslapi
     die;
 }

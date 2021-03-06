@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          
     $balance = $_POST['balance'] ?? 0;
     $balance = (int) $balance;
-    update($id,$balance,);
+    updateAdd($id,$balance,);
    
     header('Location: '.URL.'table.php'); // einam i lenteles puslapi
     die;
@@ -69,7 +69,7 @@ if($_SERVER['REQUEST_METHOD'] =='GET'){
     <td><?=$user['balance'] ?></td>
     <td> 
     <form action="<?= URL ?>incoming.php?id=<?=$user['id'] ?>" method="post">
-    <input type="text"  value="<?= $user['balance'] ?>" name="balance">
+    <input type="number"  value="<?= $user['balance'] ?>" name="balance">
     <button type="submit">Pridėti</button>
     </form>
     </td>
