@@ -9,7 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
    $user = getAccount($id);
    if($user['balance'] > 0){   // jeigu saskaitoj ne 0, tada saskaitos netrinam
-       header('Location: '.URL.'table.php');
+    //    return "<h1>'negalima istrinti netuscios saskaitos'</h1>";
+    header('Location: '.URL.'table.php');
        die;
    } else {                    
     deleteAccount($id);     //trina 

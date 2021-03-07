@@ -90,4 +90,18 @@ function getNextId() : int  //privalomai turi grazinti skaiciu (:int)
     file_put_contents(DIR.'data/indexes.json', $index);
     return $id;
 }
+
+function accountNumber()   // Saskaiton Nr. generatorius
+{
+    $checkedNum = '01';
+    $bankCode = '88000';
+    $randNumb = '';
+    for ($i=0; $i <= 10; $i++) { 
+        $rand = (string) rand(0,9);
+        $randNumb .= $rand;
+    }
+    $accNumber = 'LT' . $checkedNum. $bankCode. $randNumb;
+    $accNumber = (string) $accNumber;
+    return $accNumber;
+}
 ?>

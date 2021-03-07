@@ -31,8 +31,13 @@ require __DIR__.'/bootstrap.php';
     <th>Nuskaičiuoti</th>
     <th>ištrinti</th>
   </tr>
+                      
+    <?php $users = readData();  //reikejo ikisti funkcija readData();i kintamaji,nes kitaip nesortino
+    usort($users, function ($a, $b) {
+        return $a['surname'] <=> $b['surname'];
+    }); ?>
 
-  <?php foreach(readData() as $user) : ?>
+  <?php foreach($users as $user) :  //$users = readData()?>  
     <tr>
     <td><?=$user['acc'] ?></td>
     <td><?=$user['name'] ?></td>
