@@ -51,6 +51,7 @@ function updateAdd($id, $balance) : void // nieko negrazina, bet paima kieki ir 
     if ($user['balance']  < 0){   //jeigu minusuojama daugiau negu yra saskaitoj, tada gryztam atgal nepadare pakeitimu;
         return;
     }
+   
     
 
     deleteAccount($id);    // tada su deleteAccoint funkcija istrinu sena saskaita

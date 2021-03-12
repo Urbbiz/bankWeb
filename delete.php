@@ -9,12 +9,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
    $user = getAccount($id);
    if($user['balance'] > 0){   // jeigu saskaitoj ne 0, tada saskaitos netrinam
-    //    return "<h1>'negalima istrinti netuscios saskaitos'</h1>";
+   
+    $_SESSION['message'] = 'Operacija nutraukta! Ištrinti galima tik tuščią sąskaitą!';
     header('Location: '.URL.'table.php');
        die;
    } else {                    
     deleteAccount($id);     //trina 
    }
+   $_SESSION['message'] = 'Operacija atlikta!';
     header('Location: '.URL.'table.php'); // einam i lenteles puslapi
     die;
 }
